@@ -19,3 +19,12 @@ Backend:
 - a lambda handles form submissions
 - submissions are saved into a DynamoDB
 - submissions can be viewed using a different lambda function
+
+## Requirements
+
+You need to have TamperMonkey installed in Chrome.
+Add a script with the content of tweety.js
+
+## Future
+
+- We'll sort out distribution later.
