@@ -18,16 +18,27 @@ function handleTweeetyClick( e ) {
     $("#gmOverlayDialog").toggleClass("OverlayHidden");
 }
 
+function handleSubmit( e ) {
+    var content = $("#gmTextArea").val();
+    var url = document.location.href;
+    console.log( { content: content, url: url } );    
+}
+
 function makeTweetyClickable() {
     // We could find the element with jQuery, but I came up with the path before deciding to include jQuery.
     var tweety = getElementByXpath('//html/body/header/div[@class="o-page__navigation-meta"]/div/nav/ul/img');
 
     $("body").append (
-        '<div id="gmOverlayDialog" class="OverlayHidden"></div>'
+        '<div id="gmOverlayDialog" class="OverlayHidden">' +
+        '<textarea id="gmTextArea" rows="6" cols="50"">Type your comment here</textarea>'+
+        '<input id="gmSubmit" type="submit" value="Submit"></input>'+
+        '</div>'
     );
 
-    GM_addStyle("#gmOverlayDialog {height: 500px; width: 250px; background: #FFFFFF; position: fixed; right: 5px; top: 42px; border: 1px Solid #CCCCCC;  z-index: 5000;}");
+    GM_addStyle("#gmOverlayDialog {height: 200px; width: 250px; background: #FFFFFF; position: fixed; right: 5px; top: 42px; border: 1px Solid #CCCCCC;  z-index: 5000;}");
     GM_addStyle(".OverlayHidden {display: none;}");
+
+    $("#gmSubmit").on("click", handleSubmit);
 
     tweety.addEventListener("click", handleTweeetyClick);
 }
