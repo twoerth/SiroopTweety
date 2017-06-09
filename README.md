@@ -28,3 +28,7 @@ Add a script with the content of tweety.js
 ## Future
 
 - We'll sort out distribution later.
+
+# One more thing...
+
+One can drag duplicate products on top of each other to flag them in a different table.
